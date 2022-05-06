@@ -18,4 +18,4 @@
 1. Java
 
 ## Author Details
-Maryanne Njuguna Find me on Twitter and Linkedi In @themaryanjuguna | [Linktree Profile](https://linktr.ee/themaryanjuguna)
+Maryanne Njuguna [Linktree Profile](https://linktr.ee/themaryanjuguna)
