@@ -2,19 +2,18 @@ package models;
 
 import java.util.Objects;
 
-import static java.lang.Object.*;
 import static java.util.Objects.hash;
 
 public class Ranger {
     private String rangerName;
     private int id;
-    private int radioFrequency;
+    private int radioTelephoneFrequency;
     private String avatarUrl;
     private int badgeNumber;
 
-    public Ranger(String rangerName, int radioFrequency, String avatarUrl, int badgeNumber) {
+    public Ranger(String rangerName, int radioTelephoneFrequency, String avatarUrl, int badgeNumber) {
         this.rangerName = rangerName;
-        this.radioFrequency = radioFrequency;
+        this.radioTelephoneFrequency = radioTelephoneFrequency;
         this.avatarUrl = avatarUrl;
         this.badgeNumber = badgeNumber;
     }
@@ -24,11 +23,11 @@ public class Ranger {
         if (this == o)return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ranger ranger = (Ranger) o;
-        return id == ranger.id && radioFrequency == ranger.radioFrequency && badgeNumber ==ranger.badgeNumber && Objects.equals(rangerName, ranger.rangerName) && Objects.equals(avatarUrl, ranger.avatarUrl);
+        return id == ranger.id && radioTelephoneFrequency == ranger.radioTelephoneFrequency && badgeNumber ==ranger.badgeNumber && Objects.equals(rangerName, ranger.rangerName) && Objects.equals(avatarUrl, ranger.avatarUrl);
     }
 
     @Override
-    public int hashCode() {return hash(id,rangerName, radioFrequency, avatarUrl);}
+    public int hashCode() {return hash(id,rangerName, radioTelephoneFrequency, avatarUrl);}
 
     public void setId(int id) {
         this.id = id;
@@ -42,8 +41,8 @@ public class Ranger {
         return id;
     }
 
-    public int getRadioFrequency() {
-        return radioFrequency;
+    public int getRadioTelephoneFrequency() {
+        return radioTelephoneFrequency;
     }
 
     public int getBadgeNumber() {
@@ -58,8 +57,8 @@ public class Ranger {
         this.rangerName = rangerName;
     }
 
-    public void setRadioFrequency(int radioFrequency) {
-        this.radioFrequency = radioFrequency;
+    public void setRadioTelephoneFrequency(int radioTelephoneFrequency) {
+        this.radioTelephoneFrequency = radioTelephoneFrequency;
     }
 
     public void setBadgeNumber(int badgeNumber) {

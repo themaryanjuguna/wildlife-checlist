@@ -7,14 +7,14 @@ public class Animals {
     public int age;
     public String behaviour;
     public String health;
-    public String classification;
+    public String risk;
 
-    public Animals(String name, int age, String behaviour, String health, String classification) {
+    public Animals(String name, int age, String behaviour, String health, String risk) {
         this.name = name;
         this.age = age;
         this.behaviour = behaviour;
         this.health = health;
-        this.classification = classification;
+        this.risk = risk;
     }
 
     public int getId() {
@@ -37,8 +37,8 @@ public class Animals {
         return health;
     }
 
-    public String getClassification() {
-        return classification;
+    public String getRisk() {
+        return risk;
     }
 
 
@@ -62,7 +62,7 @@ public class Animals {
         this.health = health;
     }
 
-    public void setClassification(String classification) {
-        this.classification = classification;
+    public void setRisk(String risk) {
+        this.risk = risk;
     }
 }
