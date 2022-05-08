@@ -10,11 +10,13 @@ public class Ranger {
     private int id;
     private int radioFrequency;
     private String avatarUrl;
+    private int badgeNumber;
 
-    public Ranger(String rangerName, int radioFrequency, String avatarUrl) {
+    public Ranger(String rangerName, int radioFrequency, String avatarUrl, int badgeNumber) {
         this.rangerName = rangerName;
         this.radioFrequency = radioFrequency;
         this.avatarUrl = avatarUrl;
+        this.badgeNumber = badgeNumber;
     }
 
     @Override
@@ -22,7 +24,7 @@ public class Ranger {
         if (this == o)return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ranger ranger = (Ranger) o;
-        return id == ranger.id && radioFrequency == ranger.radioFrequency && Objects.equals(rangerName, ranger.rangerName) && Objects.equals(avatarUrl, ranger.avatarUrl);
+        return id == ranger.id && radioFrequency == ranger.radioFrequency && badgeNumber ==ranger.badgeNumber && Objects.equals(rangerName, ranger.rangerName) && Objects.equals(avatarUrl, ranger.avatarUrl);
     }
 
     @Override
@@ -44,6 +46,10 @@ public class Ranger {
         return radioFrequency;
     }
 
+    public int getBadgeNumber() {
+        return badgeNumber;
+    }
+
     public String getAvatarUrl() {
         return avatarUrl;
     }
@@ -54,6 +60,10 @@ public class Ranger {
 
     public void setRadioFrequency(int radioFrequency) {
         this.radioFrequency = radioFrequency;
+    }
+
+    public void setBadgeNumber(int badgeNumber) {
+        this.badgeNumber = badgeNumber;
     }
 
     public void setAvatarUrl(String avatarUrl) {
