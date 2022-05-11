@@ -13,13 +13,13 @@ public interface AnimalsDao {
 
     void addAnimal(Animals animals);
 
-    void findAnimalByName(String name);
+    Animals findAnimalByName(String name);
 
-    void findAnimalByRisk(String risk);
+    Animals findAnimalByRisk(String risk);
 
-    void findAnimalByHealth(String health);
+    Animals findAnimalByHealth(String health);
 
-    void findAnimalByAge(int age);
+    Animals findAnimalByAge(int age);
 
     void deleteAnimalById(int id);
 

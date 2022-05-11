@@ -4,12 +4,11 @@ import models.Animals;
 import models.Location;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
+import org.sql2o.Sql2oException;
 
 import java.util.List;
 
-import static com.google.common.net.HttpHeaders.FROM;
 import static java.lang.Class.forName;
-import static org.h2.command.CommandInterface.SELECT;
 
 public class Sql2oAnimalsDao implements AnimalsDao {
 
@@ -52,36 +51,95 @@ public class Sql2oAnimalsDao implements AnimalsDao {
 
     @Override
     public void addAnimal(Animals animals) {
+        getDrivers();
+        String sql = "INSERT INTO animals(name, age, behaviour, health, risk) VALUES (:name, :age, :behaviour, :health, :risk)";
+        try(Connection con = sql2o.open()){
+            int id = (int) con.createQuery(sql, true)
+                    .bind(animals)
+                    .executeUpdate()
+                    .getKey();
+            animals.setId(id);
+        } catch (Sql2oException e){
+            System.out.println(e);
+        }
 
     }
 
     @Override
-    public void findAnimalByName(String name) {
+    public Animals findAnimalByName(String name) {
+        getDrivers();
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM animals WHERE name = :name")
+                    .addParameter("name", name)
+                    .executeAndFetchFirst(Animals.class);
+        }
 
     }
 
     @Override
-    public void findAnimalByRisk(String risk) {
+    public Animals findAnimalByRisk(String risk) {
+
+        getDrivers();
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM animals WHERE risk = :risk")
+                    .addParameter("risk", risk)
+                    .executeAndFetchFirst(Animals.class);
+        }
 
     }
 
     @Override
-    public void findAnimalByHealth(String health) {
+    public Animals findAnimalByHealth(String health) {
+
+        getDrivers();
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM animals WHERE health = :health")
+                    .addParameter("health", health)
+                    .executeAndFetchFirst(Animals.class);
+        }
 
     }
 
     @Override
-    public void findAnimalByAge(int age) {
+    public Animals findAnimalByAge(int age) {
+
+        getDrivers();
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM animals WHERE age = :age")
+                    .addParameter("age", age)
+                    .executeAndFetchFirst(Animals.class);
+        }
+
+
 
     }
 
     @Override
     public void deleteAnimalById(int id) {
+        getDrivers();
+        String sql = "DELETE FROM animals WHERE id -:id";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException e){
+            System.out.println(e);
+        }
 
     }
 
     @Override
     public void deleteAllAnimals() {
+        getDrivers();
+        String sql = "DELETE FROM animals";
+        try(Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .executeUpdate();
+
+        } catch (Sql2oException e){
+            System.out.println(e);
+        }
+
 
     }
 }
