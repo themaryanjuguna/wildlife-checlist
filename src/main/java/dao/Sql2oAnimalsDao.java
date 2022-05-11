@@ -31,7 +31,7 @@ public class Sql2oAnimalsDao implements AnimalsDao {
     public List<Animals> getAllAnimals() {
         getDrivers();
         try(Connection con = sql2o.open()) {
-            return con.createQuery(" SELECT * FROM Animals")
+            return con.createQuery(" SELECT * FROM animals")
                     .executeAndFetch(Animals.class);
         }
     }

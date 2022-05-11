@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface RangerDao {
 
-    List<Ranger> getallRangers();
+    List<Ranger> getAllRangers();
 
     void addRanger(Ranger ranger);
 
@@ -14,7 +14,7 @@ public interface RangerDao {
 
     Ranger findRangerByBadgeNumber(int badgeNumber);
 
-    void deleteRangerById(int badgeNumber);
+    void deleteRangerById(int id);
 
     void deleteAllRangers();
 }

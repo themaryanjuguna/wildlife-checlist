@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface AnimalsDao {
 
+
     List<Animals> getAllAnimals();
 
     List<Location> getAllLocation();

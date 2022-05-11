@@ -1,6 +1,5 @@
 package dao;
 
-import models.Animals;
 import models.Ranger;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -24,7 +23,7 @@ public class Sql2oRangerDao implements RangerDao{
         }
     }
     @Override
-    public List<Ranger> getallRangers() {
+    public List<Ranger> getAllRangers() {
 
         getDrivers();
         try(Connection con = sql2o.open()) {
