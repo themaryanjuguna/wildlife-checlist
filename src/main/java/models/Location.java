@@ -42,12 +42,12 @@ public class Location {
         this.id = id;
     }
 
-    public Timestamp getTimestamp() {
+  /*  public Timestamp getTimestamp() {
         return timestamp;
     }
 
     public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
-    }
+    }*/
 }
 
