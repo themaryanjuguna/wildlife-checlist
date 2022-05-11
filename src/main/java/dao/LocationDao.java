@@ -1,7 +1,6 @@
 package dao;
 
 import models.Location;
-import models.Ranger;
 
 import java.util.List;
 
@@ -9,11 +8,11 @@ public interface LocationDao {
 
     List<Location> getAllLocations();
 
-    List<Ranger>getAllRangersByBadgeNumber(int badgeNumber);
+    Location findLocationByType(String type);
 
     void addLocation(Location location);
 
-    void findLocationById(int id);
+    Location findLocationById(int id);
 
     void deleteLocationById(int id);
 

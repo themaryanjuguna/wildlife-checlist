@@ -19,8 +19,6 @@ public class Sql2oAnimalsDao implements AnimalsDao {
         this.sql2o = sql2o;
     }
 
-
-
     public void getDrivers(){
     try{
          Class.forName("org.postgresql.Driver");
@@ -52,7 +50,7 @@ public class Sql2oAnimalsDao implements AnimalsDao {
     @Override
     public void addAnimal(Animals animals) {
         getDrivers();
-        String sql = "INSERT INTO animals(name, age, behaviour, health, risk) VALUES (:name, :age, :behaviour, :health, :risk)";
+        String sql = "INSERT INTO animals(id, name, age, location, behaviour, health, risk) VALUES (:id, :name, :age, :location, :behaviour, :health, :risk)";
         try(Connection con = sql2o.open()){
             int id = (int) con.createQuery(sql, true)
                     .bind(animals)
@@ -110,8 +108,6 @@ public class Sql2oAnimalsDao implements AnimalsDao {
                     .executeAndFetchFirst(Animals.class);
         }
 
-
-
     }
 
     @Override
@@ -139,7 +135,6 @@ public class Sql2oAnimalsDao implements AnimalsDao {
         } catch (Sql2oException e){
             System.out.println(e);
         }
-
 
     }
 }

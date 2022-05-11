@@ -14,7 +14,7 @@ public interface RangerDao {
 
     Ranger findRangerByBadgeNumber(int badgeNumber);
 
-    void deleteRangerByBadgeNumber(int badgeNumber);
+    void deleteRangerById(int badgeNumber);
 
     void deleteAllRangers();
 }
