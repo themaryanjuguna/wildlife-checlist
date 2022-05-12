@@ -1,54 +1,36 @@
 {{#partial "content"}}
 
-    <section id="animals">
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Animals that have bee Sighted</h1>
+                <p class="lead text-muted">We have over 500 hundred species of Flora and Fauna in our ecosystem. Recently, we have develop an e-system to help us record and keep track our wild animals.</p>
+                <p>
+                    <a href="/#animals" class="btn btn-primary my-2">Add a Species</a>
+                    <a href="/#endangered" class="btn btn-danger my-2">Add an Endangered Species</a>
+                    <a href="/#sighting" class="btn btn-secondary my-2">Record a Sighting</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="animals" class="bg-light">
         <div class="container col-xl-10 col-xxl-8 px-4 py-5">
             <div class="row align-items-center g-lg-5 py-5">
                 <div class="col-lg-7 text-center text-lg-start">
-                    <h1 class="display-4 fw-bold lh-1 mb-3">Record your sightings here</h1>
-                    <p class="col-lg-10 fs-4">Thank you for taking part of this program</p>
+                    <h1 class="display-4 fw-bold lh-1 mb-3">Did you spot a popular species?</h1>
+                    <p class="col-lg-10 fs-4">Record it here</p>
                 </div>
                 <div class="col-md-10 mx-auto col-lg-5">
                     <form action="/animals/new" method="post"  class="p-4 p-md-5 border rounded-3 shadow-lg bg-light">
 
-                        <h4 class="mb-3">Record a Species</h4>
+                        <h4 class="mb-3">Record a Popular Species</h4>
 
                         <div class="row g-2 mb-3">
                             <div class="col-md">
                                 <div class="form-floating">
                                     <input type="email" class="form-control" id="floatingInputGrid" placeholder="species" required>
                                     <label for="floatingInputGrid">Species Name</label>
-                                </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="form-floating">
-                                    <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example" required>
-                                        <option value="new-born">New Born</option>
-                                        <option value="young">Young</option>
-                                        <option value="Adult">Adult</option>
-                                    </select>
-                                    <label for="floatingSelectGrid">Age</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row g-2 mb-3">
-                            <div class="col-md">
-                                <div class="form-floating">
-                                    <select class="form-select" id="floatingSelectGrid" aria-label="Floating label" required>
-                                        <option value="endangered">Endangered</option>
-                                        <option value="Least-Concern">Least-Concern</option>
-                                    </select>
-                                    <label for="floatingSelectGrid">Existence Risk</label>
-                                </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="form-floating">
-                                    <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example" required>
-                                        <option value="new-born">Savannah grasslands</option>
-                                        <option value="young">Riverine</option>
-                                        <option value="Adult">Marshland</option>
-                                        <option value="Adult">Forest</option>
-                                    </select>
-                                    <label for="floatingSelectGrid">Location</label>
                                 </div>
                             </div>
                         </div>
@@ -59,24 +41,25 @@
             </div>
         </div>
     </section>
-    <section id="endangered">
+    <section id="endangered" class="bg-success p-2 text-dark bg-opacity-10">
         <div class="container col-xl-10 col-xxl-8 px-4 py-5">
             <div class="row align-items-center g-lg-5 py-5">
                 <div class="col-lg-7 text-center text-lg-start">
-                    <form action="/animals/new" method="post"  class="p-4 p-md-5 border rounded-3 shadow-lg bg-light">
+                    <form action="/endangered/new" method="post"  class="p-4 p-md-5 border rounded-3 shadow-lg bg-light">
 
-                        <h4 class="mb-3">Record a Species</h4>
+                        <h4 class="mb-3">Record an Endangered Species</h4>
 
                         <div class="row g-2 mb-3">
                             <div class="col-md">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="floatingInputGrid" placeholder="species" required>
+                                    <input type="email" class="form-control" id="floatingInputGrid" placeholder="species" autocomplete="off" required>
                                     <label for="floatingInputGrid">Species Name</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating">
                                     <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example" required>
+                                        <option value="">__</option>
                                         <option value="new-born">New Born</option>
                                         <option value="young">Young</option>
                                         <option value="Adult">Adult</option>
@@ -89,6 +72,7 @@
                             <div class="col-md">
                                 <div class="form-floating">
                                     <select class="form-select" id="floatingSelectGrid" aria-label="Floating label" required>
+                                        <option value="">__</option>
                                         <option value="endangered">Endangered</option>
                                         <option value="Least-Concern">Least-Concern</option>
                                     </select>
@@ -97,79 +81,56 @@
                             </div>
                             <div class="col-md">
                                 <div class="form-floating">
-                                    <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example" required>
-                                        <option value="new-born">Savannah grasslands</option>
-                                        <option value="young">Riverine</option>
-                                        <option value="Adult">Marshland</option>
-                                        <option value="Adult">Forest</option>
+                                    <select class="form-select" id="floatingSelectGrid" aria-label="Floating label" required>
+                                        <option value="">__</option>
+                                        <option value="healthy">Healthy</option>
+                                        <option value="injured">injured</option>
+                                        <option value="ill">ill</option>
                                     </select>
-                                    <label for="floatingSelectGrid">Location</label>
+                                    <label for="floatingSelectGrid">Well-Being</label>
                                 </div>
                             </div>
+
+
                         </div>
                         <button class="w-100 btn btn-lg btn-primary" type="submit">Record Sighting</button>
                         <hr class="my-4">
                     </form>
                 </div>
                 <div class="col-md-10 mx-auto col-lg-5">
-                    <h1 class="display-4 fw-bold lh-1 mb-3">Record your sightings here</h1>
-                    <p class="col-lg-10 fs-4">Thank you for taking part of this program</p>
+                    <h1 class="display-4 fw-bold lh-1 mb-3">Record an Endangered</h1>
+                    <p class="col-lg-10 fs-4">All endangered species should be recorded here</p>
                 </div>
             </div>
         </div>
     </section>
-    <section id="rangers">
+
+    <section id="sighting">
         <div class="container col-xl-10 col-xxl-8 px-4 py-5">
             <div class="row align-items-center g-lg-5 py-5">
                 <div class="col-lg-7 text-center text-lg-start">
                     <h1 class="display-4 fw-bold lh-1 mb-3">Record your sightings here</h1>
-                    <p class="col-lg-10 fs-4">Thank you for taking part of this program</p>
+                    <p class="col-lg-10 fs-4">A ranger should record the species of animal spotted and where they  were seen</p>
                 </div>
                 <div class="col-md-10 mx-auto col-lg-5">
-                    <form action="/animals/new" method="post"  class="p-4 p-md-5 border rounded-3 shadow-lg bg-light">
+                    <form action="/sighting/new" method="post"  class="p-4 p-md-5 border rounded-3 shadow-lg bg-light">
 
-                        <h4 class="mb-3">Record a Species</h4>
+                        <h4 class="mb-3">Record Sighted Animals Here</h4>
 
-                        <div class="row g-2 mb-3">
-                            <div class="col-md">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="floatingInputGrid" placeholder="species" required>
+                        <div class="row g-2">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingInputGrid" placeholder="recordedspecies" required>
                                     <label for="floatingInputGrid">Species Name</label>
                                 </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="form-floating">
-                                    <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example" required>
-                                        <option value="new-born">New Born</option>
-                                        <option value="young">Young</option>
-                                        <option value="Adult">Adult</option>
-                                    </select>
-                                    <label for="floatingSelectGrid">Age</label>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingInputGrid" placeholder="arealocated" required>
+                                    <label for="floatingInputGrid">Where was it Located?</label>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row g-2 mb-3">
-                            <div class="col-md">
-                                <div class="form-floating">
-                                    <select class="form-select" id="floatingSelectGrid" aria-label="Floating label" required>
-                                        <option value="endangered">Endangered</option>
-                                        <option value="Least-Concern">Least-Concern</option>
-                                    </select>
-                                    <label for="floatingSelectGrid">Existence Risk</label>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingInputGrid" placeholder="rangersname" required>
+                                    <label for="floatingInputGrid">Rangers Name</label>
                                 </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="form-floating">
-                                    <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example" required>
-                                        <option value="new-born">Savannah grasslands</option>
-                                        <option value="young">Riverine</option>
-                                        <option value="Adult">Marshland</option>
-                                        <option value="Adult">Forest</option>
-                                    </select>
-                                    <label for="floatingSelectGrid">Location</label>
-                                </div>
-                            </div>
-                        </div>
+
                         <button class="w-100 btn btn-lg btn-primary" type="submit">Record Sighting</button>
                         <hr class="my-4">
                     </form>

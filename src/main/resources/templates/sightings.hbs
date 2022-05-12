@@ -1,4 +1,48 @@
 {{#partial "content"}}
+
+    <section>
+        <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+            <div class="row align-items-center g-lg-5 py-5">
+                <div class="col-lg text-center text-lg-start">
+                    <h1 class="display-4 fw-bold lh-1 mb-3">Hero List</h1>
+
+
+                    {{#if sightings}} <!--if sightings exist, then -->
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">ID.</th>
+                                <th scope="col">Species Name</th>
+                                <th scope="col">Sighted Location</th>
+                                <th scope="col">Name of Ranger</th>
+                                <th scope="col">RadioTelephone Channel</th>
+                                <th scope="col">Time </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each heroes }} <!--loop-->
+                            <tr>
+                                <td scope="row">{{  }}</td>
+                                <td scope="row">{{  }}</td><!--show-->
+                                <td scope="row">{{  }}</td>
+                                <td scope="row">{{  }}</td>
+                                <td scope="row">{{  }}</td>
+                                <td scope="row">{{  }}</td>
+                            {{/each}}
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    {{else}} <!--no heroes! -->
+                        <tr scope="row">No Sightings to show at the moment</tr>
+                    {{/if}}
+
+                </div>
+            </div>
+        </div>
+    </section>
+
 {{/partial}}
 
 {{> "layout.hbs"}}
