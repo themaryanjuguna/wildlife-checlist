@@ -5,25 +5,27 @@
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
                 <h1 class="fw-light">Animals that have bee Sighted</h1>
-                <p class="lead text-muted">We have over 500 hundred species of Flora and Fauna in our ecosystem. Recently, we have develop an e-system to help us record our wild animals. In the future we will also add the pla</p>
+                <p class="lead text-muted">We have over 500 hundred species of Flora and Fauna in our ecosystem. Recently, we have develop an e-system to help us record our wild animals.
                 <p>
-                    <a href="#" class="btn btn-primary my-2">Meet our Rangers</a>
-                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                    <a href="/sightings" class="btn btn-primary my-2">View Sighting Records</a>
+                    <a href="#animalstoo" class="btn btn-secondary my-2">View AnimalsRecords</a>
                 </p>
             </div>
         </div>
     </section>
 
-    <div>
+    <section id="animalstoo">
     <div class="py-5 bg-light">
         <div class="container">
+    <section>
+        <h1 class="display-4 fw-bold lh-1 mb-3">Wildlife Records</h1>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
 
-            <div>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <div class="col">
+    {{#if sightings}}
                     <div class="card shadow-sm">
                         <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
+                    {{#each heroes }} <!--loop-->
                         <div class="card-body">
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                             <div class="d-flex justify-content-between align-items-center">
@@ -34,11 +36,15 @@
                                 <small class="text-muted">9 mins</small>
                             </div>
                         </div>
+                    {{/each}}
                     </div>
-                </div>
+                   </div>
+{{else}} <!--no heroes! -->
+    <tr scope="row">No Species Records to show at the moment</tr>
+{{/if}}
+            </div>
+        </section>
 
-            </div>
-            </div>
 {{/partial}}
 
 {{> layout.hbs}}

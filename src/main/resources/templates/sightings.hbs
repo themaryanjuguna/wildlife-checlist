@@ -1,10 +1,23 @@
 {{#partial "content"}}
 
-    <section>
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Animals that have bee Sighted</h1>
+                <p class="lead text-muted">We have over 500 hundred species of Flora and Fauna in our ecosystem. Recently, we have develop an e-system to help us record our wild animals.
+                <p>
+                    <a href="#sightingstoo" class="btn btn-primary my-2">View Sighting Records</a>
+                    <a href="/animals" class="btn btn-secondary my-2">View AnimalsRecords</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sightingstoo" class="bg-danger p-2 text-dark bg-opacity-10">
         <div class="container col-xl-10 col-xxl-8 px-4 py-5">
             <div class="row align-items-center g-lg-5 py-5">
                 <div class="col-lg text-center text-lg-start">
-                    <h1 class="display-4 fw-bold lh-1 mb-3">Hero List</h1>
+                    <h1 class="display-4 fw-bold lh-1 mb-3">Sighting Records</h1>
 
 
                     {{#if sightings}} <!--if sightings exist, then -->
@@ -22,12 +35,12 @@
                             <tbody>
                             {{#each heroes }} <!--loop-->
                             <tr>
-                                <td scope="row">{{  }}</td>
-                                <td scope="row">{{  }}</td><!--show-->
-                                <td scope="row">{{  }}</td>
-                                <td scope="row">{{  }}</td>
-                                <td scope="row">{{  }}</td>
-                                <td scope="row">{{  }}</td>
+                                <td scope="row"></td>
+                                <td scope="row"></td><!--show-->
+                                <td scope="row"></td>
+                                <td scope="row"></td>
+                                <td scope="row"></td>
+                                <td scope="row"></td>
                             {{/each}}
                             </tr>
 
@@ -35,7 +48,7 @@
                         </table>
 
                     {{else}} <!--no heroes! -->
-                        <tr scope="row">No Sightings to show at the moment</tr>
+                        <tr scope="row">No Sightings Records to show at the moment</tr>
                     {{/if}}
 
                 </div>
