@@ -28,12 +28,12 @@ public class App {
         get("/", (request, response) ->{
             Map<String, Object> model = new HashMap<>();
             List<Ranger>allranger = RangerDao.getAllRangers();
-            List<Location>alllocation = LocationDao.getAllLocations();
-            List<Animals>allanimals = AnimalsDao.getAllAnimals();
-
             model.put("ranger", allranger);
-            model.put("location", alllocation);
-            model.put("animals", allanimals);
+
+           /* List<Location>locations = LocationDao.getAllLocations();
+             model.put("location", locations);
+            List<Animals>animals = AnimalsDao.getAllAnimals();
+            model.put("animals", animals);*/
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
