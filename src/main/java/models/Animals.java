@@ -4,12 +4,12 @@ public class Animals {
 
     public int id;
     public String name;
-    public int age;
+    public String age;
     public String behaviour;
     public String health;
     public String risk;
 
-    public Animals(String name, int age, String behaviour, String health, String risk) {
+    public Animals(String name, String age, String behaviour, String health, String risk) {
         this.name = name;
         this.age = age;
         this.behaviour = behaviour;
@@ -25,7 +25,7 @@ public class Animals {
         return name;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
@@ -50,7 +50,7 @@ public class Animals {
         this.name = name;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 

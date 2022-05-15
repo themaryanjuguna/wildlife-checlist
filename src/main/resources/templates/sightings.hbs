@@ -20,7 +20,6 @@
                     <h1 class="display-4 fw-bold lh-1 mb-3">Sighting Records</h1>
 
 
-                    {{#if sightings}} <!--if sightings exist, then -->
                         <table class="table">
                             <thead>
                             <tr>
@@ -33,24 +32,19 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {{#each heroes }} <!--loop-->
+                            {{#each sightings }} <!--loop-->
                             <tr>
-                                <td scope="row"></td>
-                                <td scope="row"></td><!--show-->
-                                <td scope="row"></td>
-                                <td scope="row"></td>
-                                <td scope="row"></td>
-                                <td scope="row"></td>
+                                <td scope="row">{{ id }}</td>
+                                <td scope="row">{{animalname}}</td><!--show-->
+                                <td scope="row">{{animaltype}}</td>
+                                <td scope="row">{{location}}</td>
+                                <td scope="row">{{rangername}}</td>
+                                <td scope="row">{{time}}</td>
                             {{/each}}
                             </tr>
 
                             </tbody>
                         </table>
-
-                    {{else}} <!--no heroes! -->
-                        <tr scope="row">No Sightings Records to show at the moment</tr>
-                    {{/if}}
-
                 </div>
             </div>
         </div>

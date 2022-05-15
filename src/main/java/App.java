@@ -1,9 +1,11 @@
 import dao.Sql2oAnimalsDao;
 import dao.Sql2oLocationDao;
 import dao.Sql2oRangerDao;
+import dao.Sql2oSightingsDao;
 import models.Animals;
 import models.Location;
 import models.Ranger;
+import models.Sightings;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -18,37 +20,46 @@ public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
 
-        String connectionString = "jdbc:postgresql://localhost:5432/wildlife_tracker";
-        Sql2o sql2o = new Sql2o(connectionString, "postgres", "m");
-        Sql2oRangerDao RangerDao  = new Sql2oRangerDao(sql2o);
-        Sql2oLocationDao LocationDao  = new Sql2oLocationDao(sql2o);
-        Sql2oAnimalsDao AnimalsDao  = new Sql2oAnimalsDao(sql2o);
+   /*     Sightings first = new Sightings("animaltype", "animaltype","location","rangername");
+
+       Animals goat = new Animals("Goat",15,"sleeping","sick","none");
+
+       Sql2oAnimalsDao sheep = new Sql2oAnimalsDao();
+       sheep.addAnimal(goat);
+       sheep.deleteAnimalById(1);
+        System.out.println(sheep.getAllAnimals());
+        sheep.deleteAllAnimals();
+        System.out.println(sheep.getAllAnimals());*/
+
+
 
         //Show all rangers, animals and location
         get("/", (request, response) ->{
             Map<String, Object> model = new HashMap<>();
-            List<Ranger>allranger = RangerDao.getAllRangers();
-            model.put("ranger", allranger);
-
-           /* List<Location>locations = LocationDao.getAllLocations();
-             model.put("location", locations);
-            List<Animals>animals = AnimalsDao.getAllAnimals();
-            model.put("animals", animals);*/
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-          //Display form to add content
-     /*   get("/animals", (request, response) -> {
+         post("/endangered/new", (request, response) ->{
             Map<String, Object> model = new HashMap<>();
-            List<Animals> animals = AnimalsDao.getAllAnimals();
-            model.put("animals", animals);
-            return  new ModelAndView(model, "new-animal.hbs");
-        }, new HandlebarsTemplateEngine());*/
+            String animalName = request.queryParams("name");
+            String animalType = request.queryParams("risk");
+            String animalAge = request.queryParams("age");
+            String animalBehaviour = request.queryParams("behaviour");
+            String animalHealth = request.queryParams("health");
+            String rangerName = request.queryParams("rangername");
+            String location = request.queryParams("location");
 
+            Animals goat = new Animals(animalName, animalAge, animalBehaviour, animalHealth, animalType );
+            Sql2oAnimalsDao hen = new Sql2oAnimalsDao();
+            hen.addAnimal(goat);
+            Sightings first = new Sightings(animalName, animalType, location, rangerName);
+            Sql2oSightingsDao sql2oSightingsDao = new Sql2oSightingsDao();
+            sql2oSightingsDao.addSightings(first);
 
-        post("/animals/new", (request, response) ->{
-            Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "sightings.hbs");
+             List<Sightings> allSightings = sql2oSightingsDao.getAllSightings();
+             model.put("sightings", allSightings);
+
+             return new ModelAndView(model, "sightings.hbs");
         }, new HandlebarsTemplateEngine());
 
 
@@ -59,6 +70,11 @@ public class App {
 
         get("/sightings", (request, response) ->{
             Map<String, Object> model = new HashMap<>();
+
+            Sql2oSightingsDao sql2oSightingsDao = new Sql2oSightingsDao();
+            List<Sightings> allSightings = sql2oSightingsDao.getAllSightings();
+            model.put("sightings", allSightings);
+
             return new ModelAndView(model, "sightings.hbs");
         }, new HandlebarsTemplateEngine());
 

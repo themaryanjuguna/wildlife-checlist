@@ -52,13 +52,26 @@
                         <div class="row g-2 mb-3">
                             <div class="col-md">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="floatingInputGrid" placeholder="species" autocomplete="off" required>
-                                    <label for="floatingInputGrid">Species Name</label>
+                                    <input type="text" class="form-control" name="rangername" id="floatingInputGrid" placeholder="species" autocomplete="off" required>
+                                    <label for="floatingInputGrid">Ranger Name</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" name="name" id="floatingInputGrid" placeholder="species" autocomplete="off" required>
+                                    <label for="floatingInputGrid">Animal Name</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating">
-                                    <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example" required>
+                                    <select class="form-select" name="location" id="floatingSelectGrid" aria-label="Floating label select example" required>
+                                        <option value="">__</option>
+                                        <option value="Zone-A">Zone A</option>
+                                        <option value="Zone-B">Zone B</option>
+                                        <option value="Zone-C">Zone C</option>
+                                    </select>
+                                    <label for="floatingSelectGrid">Age</label>
+                                </div>
+                                <div class="form-floating">
+                                    <select class="form-select" name="age" id="floatingSelectGrid" aria-label="Floating label select example" required>
                                         <option value="">__</option>
                                         <option value="new-born">New Born</option>
                                         <option value="young">Young</option>
@@ -71,7 +84,7 @@
                         <div class="row g-2 mb-3">
                             <div class="col-md">
                                 <div class="form-floating">
-                                    <select class="form-select" id="floatingSelectGrid" aria-label="Floating label" required>
+                                    <select class="form-select" name="risk" id="floatingSelectGrid" aria-label="Floating label" required>
                                         <option value="">__</option>
                                         <option value="endangered">Endangered</option>
                                         <option value="Least-Concern">Least-Concern</option>
@@ -81,13 +94,25 @@
                             </div>
                             <div class="col-md">
                                 <div class="form-floating">
-                                    <select class="form-select" id="floatingSelectGrid" aria-label="Floating label" required>
+                                    <select class="form-select" id="floatingSelectGrid" name="health" aria-label="Floating label" required>
                                         <option value="">__</option>
                                         <option value="healthy">Healthy</option>
                                         <option value="injured">injured</option>
                                         <option value="ill">ill</option>
                                     </select>
                                     <label for="floatingSelectGrid">Well-Being</label>
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating">
+                                    <select class="form-select" id="floatingSelectGrid" name="behaviour" aria-label="Floating label" required>
+                                        <option value="">__</option>
+                                        <option value="healthy">Sleeping</option>
+                                        <option value="injured">Feeding</option>
+                                        <option value="ill">Mating</option>
+                                        <option value="ill">Migrating</option>
+                                    </select>
+                                    <label for="floatingSelectGrid">Behaviour</label>
                                 </div>
                             </div>
 
