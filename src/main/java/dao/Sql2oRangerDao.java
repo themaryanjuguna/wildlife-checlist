@@ -58,7 +58,7 @@ public class Sql2oRangerDao implements RangerDao{
     @Override
     public void deleteRangerById(int id) {
 
-        String sql = "DELETE FROM ranger WHERE id -:id";
+        String sql = "DELETE FROM ranger WHERE id =:id";
         try (Connection con = DB.myDb.open()) {
             con.createQuery(sql)
                     .addParameter("id", id)

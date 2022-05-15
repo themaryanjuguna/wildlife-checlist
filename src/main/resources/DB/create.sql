@@ -34,4 +34,6 @@ rangername VARCHAR,
 time TIMESTAMP
 );
 
+
+
 CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;
