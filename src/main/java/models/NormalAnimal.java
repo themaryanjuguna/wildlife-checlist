@@ -5,11 +5,11 @@ import java.util.Objects;
 public class NormalAnimal {
     public int id;
     public String name;
-    public String type;
+    public String risk;
 
     public NormalAnimal(String name, String type) {
         this.name = name;
-        this.type = type;
+        this.risk = type;
     }
 
     public int getId() {
@@ -29,11 +29,11 @@ public class NormalAnimal {
     }
 
     public String getType() {
-        return type;
+        return risk;
     }
 
     public void setType(String type) {
-        this.type = type;
+        this.risk = type;
     }
 
     @Override
@@ -41,11 +41,11 @@ public class NormalAnimal {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         NormalAnimal that = (NormalAnimal) o;
-        return id == that.id && name.equals(that.name) && type.equals(that.type);
+        return id == that.id && name.equals(that.name) && risk.equals(that.risk);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, type);
+        return Objects.hash(id, name, risk);
     }
 }

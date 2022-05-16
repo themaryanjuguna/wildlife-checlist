@@ -2,6 +2,7 @@ package dao;
 
 import models.Animals;
 import models.Location;
+import models.NormalAnimal;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
@@ -17,6 +18,7 @@ public class Sql2oAnimalsDao implements AnimalsDao {
     public List<Animals> getAllAnimals() {
         try(Connection con = DB.myDb.open()) {
             return con.createQuery(" SELECT * FROM animals")
+                    .throwOnMappingFailure(false)
                     .executeAndFetch(Animals.class);
         }
     }
@@ -45,6 +47,16 @@ public class Sql2oAnimalsDao implements AnimalsDao {
             System.out.println(e);
         }
 
+    }
+
+    @Override
+    public Animals getAnimalById(int id) {
+        try(Connection con = DB.myDb.open()) {
+            return con.createQuery(" SELECT * FROM animals WHERE id = :id")
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetchFirst(Animals.class);
+        }
     }
 
     @Override

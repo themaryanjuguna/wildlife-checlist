@@ -12,13 +12,26 @@ public class Sql2oNormalAnimalDao implements NormalAnimalDao {
 
         try(Connection con = DB.myDb.open()) {
             return con.createQuery(" SELECT * FROM animals")
+                    .throwOnMappingFailure(false)
                     .executeAndFetch(NormalAnimal.class);
         }
     }
 
-   public void addNormalAnimal(NormalAnimal normalAnimal) {
+    @Override
+    public NormalAnimal getAnimalById(int id) {
 
-        String sql = "INSERT INTO animals(id, rangerName, radioTelephoneFrequency, avatarUrl, badgeNumber) VALUES (:id, :rangerName, :radioTelephoneFrequency, :avatarUrl, :badgeNumber)";
+        try(Connection con = DB.myDb.open()) {
+            return con.createQuery(" SELECT * FROM animals WHERE id = :id")
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetchFirst(NormalAnimal.class);
+        }
+
+    }
+
+    public void addNormalAnimal(NormalAnimal normalAnimal) {
+
+        String sql = "INSERT INTO animals(name, risk) VALUES(:name, :risk)";
         try(Connection con = DB.myDb.open()){
             int id = (int) con.createQuery(sql, true)
                     .bind(normalAnimal)

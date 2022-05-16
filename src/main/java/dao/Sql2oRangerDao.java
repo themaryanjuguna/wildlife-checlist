@@ -22,7 +22,7 @@ public class Sql2oRangerDao implements RangerDao{
     @Override
     public void addRanger(Ranger ranger) {
 
-        String sql = "INSERT INTO animals(id, rangerName, radioTelephoneFrequency, avatarUrl, badgeNumber) VALUES (:id, :rangerName, :radioTelephoneFrequency, :avatarUrl, :badgeNumber)";
+        String sql = "INSERT INTO ranger(rangername, radiotelephonefrequency, badgenumber) VALUES (:rangerName, :radioTelephoneFrequency,:badgeNumber)";
         try(Connection con = DB.myDb.open()){
             int id = (int) con.createQuery(sql, true)
                     .bind(ranger)
@@ -39,7 +39,7 @@ public class Sql2oRangerDao implements RangerDao{
     public Ranger findRangerById(int id) {
 
         try(Connection con = DB.myDb.open()){
-            return con.createQuery("SELECT * FROM animals WHERE name = :id")
+            return con.createQuery("SELECT * FROM ranger WHERE id = :id")
                     .addParameter("id", id)
                     .executeAndFetchFirst(Ranger.class);
         }
@@ -49,7 +49,7 @@ public class Sql2oRangerDao implements RangerDao{
     public Ranger findRangerByBadgeNumber(int badgeNumber) {
 
         try(Connection con = DB.myDb.open()){
-            return con.createQuery("SELECT * FROM animals WHERE name = :badgeNumber")
+            return con.createQuery("SELECT * FROM ranger WHERE badgeNumber = :badgeNumber")
                     .addParameter("badgeNumber", badgeNumber)
                     .executeAndFetchFirst(Ranger.class);
         }

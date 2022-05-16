@@ -14,6 +14,8 @@ public interface AnimalsDao {
 
     void addAnimal(Animals animals);
 
+    Animals getAnimalById(int id);
+
     void deleteAnimalById(int id);
 
     void deleteAllAnimals();
