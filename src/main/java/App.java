@@ -25,12 +25,12 @@ public class App {
         post("/endangeredanimal", (request, response) ->{
             Map<String, Object> model = new HashMap<>();
 
-            String animalName = request.queryParams("name");
-            String animalType = request.queryParams("risk");
+            String animalName = request.queryParams("animalname");
+            String animalType = request.queryParams("animaltype");
             String animalAge = request.queryParams("age");
             String animalBehaviour = request.queryParams("behaviour");
             String animalHealth = request.queryParams("health");
-            String rangerName = request.queryParams("rangerName");
+            String rangerName = request.queryParams("rangername");
             String location = request.queryParams("location");
             String radioTelephoneFrequency = request.queryParams("radioTelephoneFrequency");
             int badgeNumber = Integer.parseInt(request.queryParams("badgeNumber"));
@@ -41,7 +41,7 @@ public class App {
             cheetah.addAnimal(lion);
 
              //calling Sql2oSightingsDao display its methods
-            Sightings first = new Sightings(animalname, animaltype, location, rangername);
+           Sightings first = new Sightings(animalName, animalType, location, rangerName);
             Sql2oSightingsDao sql2oSightingsDao = new Sql2oSightingsDao();
             sql2oSightingsDao.addSightings(first);
 
@@ -58,35 +58,28 @@ public class App {
 
 
 
-         //new sightings with ranger information
+        //get normal animal information
         post("/normalanimal", (request, response) ->{
             Map<String, Object> model = new HashMap<>();
 
-            String animalName = request.queryParams("name");
-            String animalType = request.queryParams("risk");
-            String rangerName = request.queryParams("rangerName");
+            String animalName = request.queryParams("animalname");
+            String animalType = request.queryParams("animaltype");
+            String rangerName = request.queryParams("rangername");
             String location = request.queryParams("location");
-            int badgeNumber =  Integer.parseInt(request.queryParams("badgeNumber"));
-            String radiotelephone = request.queryParams("radiotelephone");
 
-            System.out.println(badgeNumber);
+
 
             NormalAnimal lion = new NormalAnimal(animalName, animalType);
             Sql2oNormalAnimalDao cheetah = new Sql2oNormalAnimalDao();
             cheetah.addNormalAnimal(lion);
 
-            Sightings first = new Sightings(animalname, animatype, location, rangername);
+            Sightings first = new Sightings(animalName, animalType, location, rangerName);
             Sql2oSightingsDao sql2oSightingsDao = new Sql2oSightingsDao();
             sql2oSightingsDao.addSightings(first);
-
-            Ranger oscar = new Ranger(rangerName, radiotelephone, badgeNumber);
-            Sql2oRangerDao sql2oRangerDao = new Sql2oRangerDao();
-            sql2oRangerDao.addRanger(oscar);
 
 
             List<Sightings> allSightings = sql2oSightingsDao.getAllSightings();
             model.put("sightings", allSightings);
-
             return new ModelAndView(model, "sightings.hbs");
         }, new HandlebarsTemplateEngine());
 
