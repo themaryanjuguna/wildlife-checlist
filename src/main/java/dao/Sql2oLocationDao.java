@@ -12,7 +12,7 @@ public class Sql2oLocationDao implements LocationDao {
          @Override
     public List<Location> getAllLocations() {
 
-             try(Connection con = DB.myDb.open()){
+             try(Connection con = DB.sql2o.open()){
             return con.createQuery(" SELECT * FROM location")
                     .executeAndFetch(Location.class);
         }
@@ -22,7 +22,7 @@ public class Sql2oLocationDao implements LocationDao {
     public void addLocation(Location location) {
 
         String sql = "INSERT INTO animals(id, type, time) VALUES (:id, :type, :time)";
-        try(Connection con = DB.myDb.open()){
+        try(Connection con = DB.sql2o.open()){
             int id = (int) con.createQuery(sql, true)
                     .bind(location)
                     .executeUpdate()
@@ -38,7 +38,7 @@ public class Sql2oLocationDao implements LocationDao {
     public Location findLocationByType(String type) {
 
 
-        try(Connection con = DB.myDb.open()){
+        try(Connection con = DB.sql2o.open()){
             return con.createQuery("SELECT * FROM location WHERE type = :type")
                     .addParameter("type", type)
                     .executeAndFetchFirst(Location.class);
@@ -50,7 +50,7 @@ public class Sql2oLocationDao implements LocationDao {
     public Location findLocationById(int id) {
 
 
-        try(Connection con = DB.myDb.open()){
+        try(Connection con = DB.sql2o.open()){
             return con.createQuery("SELECT * FROM location WHERE id = :id")
                     .addParameter("id", id)
                     .executeAndFetchFirst(Location.class);
@@ -64,7 +64,7 @@ public class Sql2oLocationDao implements LocationDao {
 
 
         String sql = "DELETE FROM location WHERE id -:id";
-        try(Connection con = DB.myDb.open()) {
+        try(Connection con = DB.sql2o.open()) {
             con.createQuery(sql)
                     .addParameter("id", id)
                     .executeUpdate();
@@ -79,7 +79,7 @@ public class Sql2oLocationDao implements LocationDao {
     public void deleteAllLocations() {
 
         String sql = "DELETE FROM location";
-        try(Connection con = DB.myDb.open()){
+        try(Connection con = DB.sql2o.open()){
             con.createQuery(sql)
                     .executeUpdate();
 
