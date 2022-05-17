@@ -1,0 +1,42 @@
+{{#partial "content"}}
+
+    <section id="sightingstoo" class="bg-danger p-2 text-dark bg-opacity-10">
+        <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+            <div class="row align-items-center g-lg-5 py-5">
+                <div class="col-lg text-center text-lg-start">
+                    <h1 class="display-4 fw-bold lh-1 mb-3">Sighting Records</h1>
+
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">ID.</th>
+                                <th scope="col">Species Name</th>
+                                <th scope="col">Sighted Location</th>
+                                <th scope="col">Name of Ranger</th>
+                                <th scope="col">RadioTelephone Channel</th>
+                                <th scope="col">Time </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each sightings }} <!--loop-->
+                            <tr>
+                                <td scope="row">{{ id }}</td>
+                                <td scope="row">{{animalname}}</td><!--show-->
+                                <td scope="row">{{animaltype}}</td>
+                                <td scope="row">{{location}}</td>
+                                <td scope="row">{{rangername}}</td>
+                                <td scope="row">{{time}}</td>
+                            {{/each}}
+                            </tr>
+
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{{/partial}}
+
+{{> "layout.hbs"}}
